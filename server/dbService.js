@@ -1,4 +1,6 @@
 const mysql = require('mysql');
+const mailService = require('./mailService');
+
 let instance = null;
 
 const connection = mysql.createConnection({
@@ -147,6 +149,7 @@ class DbService {
                 };
             }
             else {
+
                 const insertId = await new Promise((resolve, reject) => {
                     const query = "INSERT INTO interviews (email1, email2, startTime, endTime) VALUES (?,?,?,?);";
 
@@ -155,6 +158,8 @@ class DbService {
                         resolve(result.insertId);
                     })
                 });
+                const ms = mailService.getMailServiceInstance();
+                ms.schedule(email1, email2, startTime, endTime);
                 return {
                     id : insertId,
                     email1: email1,
@@ -199,6 +204,8 @@ class DbService {
                         resolve(result.affectedRows);
                     })
                 });
+                const ms = mailService.getMailServiceInstance();
+                ms.update(email1, email2, startTime, endTime);
                 return {
                     id: 1
                 };
