@@ -85,7 +85,19 @@ class DbService {
     // Delete an interview
     async deleteInterviewById(id) {
         try {
-            id = parseInt(id, 10); 
+            id = parseInt(id, 10);
+            const data = await new Promise((resolve,reject) => {
+                const query = "SELECT * FROM interviews WHERE id = ?";
+                connection.query(query, [id] , (err, results) => {
+                    if (err) reject(new Error(err.message));
+                    resolve(results);
+                })
+            })
+            const email1 = data[0].email1;
+            const email2 = data[0].email2;
+            const startTime = new Date(data[0].startTime).toLocaleString();
+            const endTime = new Date(data[0].endTime).toLocaleString();
+            
             const response = await new Promise((resolve, reject) => {
                 const query = "DELETE FROM interviews WHERE id = ?";
     
@@ -94,7 +106,8 @@ class DbService {
                     resolve(result.affectedRows);
                 })
             });
-    
+            const ms = mailService.getMailServiceInstance();
+            ms.delete(email1, email2, startTime, endTime);
             return response === 1 ? true : false;
         } catch (error) {
             console.log(error);

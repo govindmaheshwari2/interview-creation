@@ -40,7 +40,7 @@ class MailService {
             text: `You have new interview scheduled.
                    Details:
                    interviewer name: ${interviewer.name}
-                   interviewee namee: ${interviewee.name}
+                   interviewee name: ${interviewee.name}
                    start time: ${startTime}
                    end time: ${endTime}`
           };
@@ -64,7 +64,7 @@ class MailService {
             text: `You interview scheduled timings are updated.
                    Details:
                    interviewer name: ${interviewer.name}
-                   interviewee namee: ${interviewee.name}
+                   interviewee name: ${interviewee.name}
                    start time: ${startTime}
                    end time: ${endTime}`
           };
@@ -87,7 +87,7 @@ class MailService {
             text: `You interview scheduled with
                    Details:
                    interviewer name: ${interviewer.name}
-                   interviewee namee: ${interviewee.name}
+                   interviewee name: ${interviewee.name}
                    start time: ${startTime}
                    end time: ${endTime}
                    is cancelled now.`
