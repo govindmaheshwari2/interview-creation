@@ -48,7 +48,7 @@ You may or may not any data into the interviews table. The data will be added au
 Change the following in ```server/dbServicejs``` if your MySQL server is setup on different port or has different credentials.
 ![MySQL credentials](https://i.paste.pics/9WL5X.png)
 
-Now when everything is setup. Go to:
+Now when everything is setup. Run the server:
 ```
 cd server
 nodemon app
