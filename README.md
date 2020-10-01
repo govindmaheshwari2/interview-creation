@@ -11,37 +11,37 @@ npm install
 ```
 To setup the MySQL database:
 
-1. Create a Database/Schema name as "db" or run the following SQL queries.
+1. Create a Database/Schema name as "InterviewDB" or run the following SQL queries.
 ```
-CREATE DATABASE db;
+CREATE DATABASE InterviewDB;
 ```
 ```
-USE db
+USE InterviewDB;
 ```
 2. Add two tables "users", to hold data of the available users and "interviews", to hold the data of the upcoming interviews. Run the following SQL query.
   ```
-  CREATE TABLE `users` (
-    `name` VARCHAR(100) NOT NULL,
-    `email_id` VARCHAR(100) NOT NULL,
-    PRIMARY KEY (`email_id`));
+  CREATE TABLE users (
+    name VARCHAR(100) NOT NULL,
+    email_id VARCHAR(100) NOT NULL,
+    PRIMARY KEY (email_id));
   ```
 Add some random names with email addresses to the users tables. Run the following SQL query.
 ```
-INSERT INTO `users` (`name`, `email_id`) VALUES ('Arin', 'arin.nigam@gmail.com');
-INSERT INTO `users` (`name`, `email_id`) VALUES ('Deepshi', 'deepshisharma123@gmail.com');
-INSERT INTO `users` (`name`, `email_id`) VALUES ('Kirti', 'kirti.godani837@gmail.com');
-INSERT INTO `users` (`name`, `email_id`) VALUES ('Kushagra', 'kushagra1998@gmail.com');
-INSERT INTO `users` (`name`, `email_id`) VALUES ('Kushagra', 'kushagra98@live.com');
+INSERT INTO users (name, email_id) VALUES ('Arin', 'arin.nigam@gmail.com');
+INSERT INTO users (name, email_id) VALUES ('Deepshi', 'deepshisharma123@gmail.com');
+INSERT INTO users (name, email_id) VALUES ('Kirti', 'kirti.godani837@gmail.com');
+INSERT INTO users (name, email_id) VALUES ('Govind', 'govindmh14@gmail.com');
+INSERT INTO users (name, email_id) VALUES ('Kushagra', 'kushagra98@live.com');
 ```
 Create the table interviews with fields id, email1, email2, startTime, endTime. Run the following SQL query.
 ```
-CREATE TABLE `interviews` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `email1` VARCHAR(100) NOT NULL,
-  `email2` VARCHAR(100) NOT NULL,
-  `startTime` DATETIME NOT NULL,
-  `endTime` DATETIME NOT NULL,
-  PRIMARY KEY (`id`));
+CREATE TABLE interviews (
+  id INT NOT NULL AUTO_INCREMENT,
+  email1 VARCHAR(100) NOT NULL,
+  email2 VARCHAR(100) NOT NULL,
+  startTime DATETIME NOT NULL,
+  endTime DATETIME NOT NULL,
+  PRIMARY KEY (id));
 ```
 You may or may not any data into the interviews table. The data will be added automatically when you scedule a new interview.
 
